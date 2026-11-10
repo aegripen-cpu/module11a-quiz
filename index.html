@@ -1,37 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0c0e10">
-<title>Module 11A Quiz</title>
-<style>
-body{margin:0;background:#0c0e10;color:#e8eaed;font-family:system-ui;display:flex;align-items:center;justify-content:center;min-height:100vh}
-.box{text-align:center;padding:2rem}
-.spin{width:40px;height:40px;border:3px solid #2a3038;border-top-color:#e85d04;border-radius:50%;animation:s 0.8s linear infinite;margin:0 auto 1rem}
-@keyframes s{to{transform:rotate(360deg)}}
-</style>
-</head>
-<body>
-<div class="box"><div class="spin"></div><p id="m">Loading Module 11A quiz…</p></div>
-<script src="b64_0.js"></script>
-<script src="b64_1.js"></script>
-<script src="b64_2.js"></script>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0c0e10"><title>Module 11A Quiz</title>
+<style>body{margin:0;background:#0c0e10;color:#e8eaed;font-family:system-ui;display:flex;align-items:center;justify-content:center;min-height:100vh}.box{text-align:center;padding:2rem}.spin{width:40px;height:40px;border:3px solid #2a3038;border-top-color:#e85d04;border-radius:50%;animation:s .8s linear infinite;margin:0 auto 1rem}@keyframes s{to{transform:rotate(360deg)}}</style>
+</head><body><div class="box"><div class="spin"></div><p id="m">Loading Module 11A quiz…</p></div>
+<script src="q0.js"></script>
+<script src="q1.js"></script>
+<script src="q2.js"></script>
+<script src="q3.js"></script>
+<script src="q4.js"></script>
+<script src="q5.js"></script>
+<script src="q6.js"></script>
+<script src="q7.js"></script>
 <script>
 async function go(){
   const m=document.getElementById('m');
   try{
-    const b64=(window.QZ0||'')+(window.QZ1||'')+(window.QZ2||'');
+    const b64=(window.Q0||'')+(window.Q1||'')+(window.Q2||'')+(window.Q3||'')+(window.Q4||'')+(window.Q5||'')+(window.Q6||'')+(window.Q7||'');
     const bin=Uint8Array.from(atob(b64),c=>c.charCodeAt(0));
-    const ds=new DecompressionStream('gzip');
-    const stream=new Response(bin).body.pipeThrough(ds);
+    const stream=new Response(bin).body.pipeThrough(new DecompressionStream('gzip'));
     const html=await new Response(stream).text();
     document.open();document.write(html);document.close();
-  }catch(e){
-    m.textContent='Load failed: '+e.message+'. Use Safari 16.4+ or Chrome.';
-  }
+  }catch(e){m.textContent='Load failed: '+e.message;}
 }
 go();
-</script>
-</body>
-</html>
+</script></body></html>
