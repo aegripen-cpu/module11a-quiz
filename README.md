@@ -1,21 +1,26 @@
-# Module 11A Practice Quiz
+# Module 11A Practice Quiz (EASA Part-66)
 
-EASA Part-66 Module 11A interactive practice quiz.
+Interactive MCQ practice for **ICAT Module 11A – Aircraft Systems**.
 
-## Why download from Grok failed
+## Live URL (after enabling Pages)
 
-**Workplace inactive** means the Grok/xAI project workspace cannot serve file downloads right now. That is an account/platform limit, not a broken quiz file.
+**https://aegripen-cpu.github.io/module11a-quiz/**
 
-## Get the quiz working
+## Enable GitHub Pages (one-time, ~30 seconds)
 
-### Option A – Single HTML file (simplest)
-When download from the chat works again, save `Module11A_Interaktiv.html`, then:
-1. Upload that file to [https://app.netlify.com/drop](https://app.netlify.com/drop) or Cloudflare Pages
-2. Open the link in Safari on iPhone
+1. Open https://github.com/aegripen-cpu/module11a-quiz/settings/pages
+2. Under **Build and deployment → Source** choose **Deploy from a branch**
+3. Branch: **main**, folder: **/ (root)**
+4. Click **Save**
+5. Wait 1–2 minutes, then open the URL above on your iPhone in Safari.
 
-### Option B – This GitHub repo
-1. Upload `index.html` (the full single-file quiz renamed) via the GitHub website: **Add file → Upload files**
-2. Settings → Pages → Deploy from **main** / **/ (root)**
-3. Open **https://aegripen-cpu.github.io/module11a-quiz/**
+No password, no OneDrive, works great on mobile.
+
+## Features
+- Choose 10–140 questions (random sample)
+- Timer scales with question count (75 s per question)
+- 75 % pass mark + explanations on review
+- Gripen-inspired dark theme with orange accents
+- Fully mobile-friendly
 
 Repo: https://github.com/aegripen-cpu/module11a-quiz
