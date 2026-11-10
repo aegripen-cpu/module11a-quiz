@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=module11a_interaktiv.html">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0c0e10">
-<title>Module 11A Quiz</title>
-<style>
-body{margin:0;background:#0c0e10;color:#e8eaed;font-family:system-ui;display:flex;align-items:center;justify-content:center;min-height:100vh;text-align:center}
-a{color:#e85d04}
-</style>
-</head>
-<body>
-<div>
-<p>Loading Module 11A quiz…</p>
-<p><a href="module11a_interaktiv.html">Click here if not redirected</a></p>
-</div>
-<script>location.replace('module11a_interaktiv.html');</script>
-</body>
-</html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0c0e10"><title>Module 11A Quiz</title>
+<style>body{margin:0;background:#0c0e10;color:#e8eaed;font-family:system-ui;display:flex;align-items:center;justify-content:center;min-height:100vh}.box{text-align:center;padding:2rem}.spin{width:40px;height:40px;border:3px solid #2a3038;border-top-color:#e85d04;border-radius:50%;animation:s .8s linear infinite;margin:0 auto 1rem}@keyframes s{to{transform:rotate(360deg)}}</style>
+</head><body><div class="box"><div class="spin"></div><p id="m">Loading Module 11A quiz…</p></div>
+<script src="x0.js"></script><script src="x1.js"></script><script src="x2.js"></script><script src="x3.js"></script><script src="x4.js"></script><script src="x5.js"></script><script src="x6.js"></script><script src="x7.js"></script><script src="x8.js"></script><script src="x9.js"></script><script src="x10.js"></script><script src="x11.js"></script><script src="x12.js"></script><script src="x13.js"></script><script src="x14.js"></script><script src="x15.js"></script><script src="x16.js"></script><script src="x17.js"></script><script src="x18.js"></script><script src="x19.js"></script><script src="x20.js"></script><script src="x21.js"></script><script src="x22.js"></script><script src="x23.js"></script><script src="x24.js"></script><script src="x25.js"></script><script src="x26.js"></script><script src="x27.js"></script><script src="x28.js"></script><script src="x29.js"></script><script src="x30.js"></script><script src="x31.js"></script>
+<script>
+async function go(){
+  const m=document.getElementById('m');
+  try{
+    let b64='';
+    for(let i=0;i<32;i++){ b64 += (window['X'+i]||''); }
+    const bin=Uint8Array.from(atob(b64),c=>c.charCodeAt(0));
+    const stream=new Response(bin).body.pipeThrough(new DecompressionStream('gzip'));
+    const html=await new Response(stream).text();
+    document.open();document.write(html);document.close();
+  }catch(e){m.textContent='Load failed: '+e.message; console.error(e);}
+}
+go();
+</script></body></html>
