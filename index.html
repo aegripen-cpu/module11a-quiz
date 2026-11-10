@@ -1,21 +1,469 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0c0e10"><title>Module 11A Quiz</title>
-<style>body{margin:0;background:#0c0e10;color:#e8eaed;font-family:system-ui;display:flex;align-items:center;justify-content:center;min-height:100vh}.box{text-align:center;padding:2rem}.spin{width:40px;height:40px;border:3px solid #2a3038;border-top-color:#e85d04;border-radius:50%;animation:s .8s linear infinite;margin:0 auto 1rem}@keyframes s{to{transform:rotate(360deg)}}</style>
-</head><body><div class="box"><div class="spin"></div><p id="m">Loading Module 11A quiz…</p></div>
-<script src="x0.js"></script><script src="x1.js"></script><script src="x2.js"></script><script src="x3.js"></script><script src="x4.js"></script><script src="x5.js"></script><script src="x6.js"></script><script src="x7.js"></script><script src="x8.js"></script><script src="x9.js"></script><script src="x10.js"></script><script src="x11.js"></script><script src="x12.js"></script><script src="x13.js"></script><script src="x14.js"></script><script src="x15.js"></script><script src="x16.js"></script><script src="x17.js"></script><script src="x18.js"></script><script src="x19.js"></script><script src="x20.js"></script><script src="x21.js"></script><script src="x22.js"></script><script src="x23.js"></script><script src="x24.js"></script><script src="x25.js"></script><script src="x26.js"></script><script src="x27.js"></script><script src="x28.js"></script><script src="x29.js"></script><script src="x30.js"></script><script src="x31.js"></script>
-<script>
-async function go(){
-  const m=document.getElementById('m');
-  try{
-    let b64='';
-    for(let i=0;i<32;i++){ b64 += (window['X'+i]||''); }
-    const bin=Uint8Array.from(atob(b64),c=>c.charCodeAt(0));
-    const stream=new Response(bin).body.pipeThrough(new DecompressionStream('gzip'));
-    const html=await new Response(stream).text();
-    document.open();document.write(html);document.close();
-  }catch(e){m.textContent='Load failed: '+e.message; console.error(e);}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#0c0e10">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Module 11A · Practice Questions</title>
+<style>
+:root {
+  --bg: #0c0e10;
+  --bg2: #12151a;
+  --card: #161a20;
+  --card-hover: #1c2129;
+  --border: #2a3038;
+  --border-light: #3a424c;
+  --gripen: #1a1e24;
+  --orange: #e85d04;
+  --orange-dim: #c44d03;
+  --orange-glow: rgba(232, 93, 4, 0.3);
+  --text: #e8eaed;
+  --text-dim: #9aa0a6;
+  --success: #34a853;
+  --error: #ea4335;
+  --font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
-go();
-</script></body></html>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 1rem; }
+header {
+  background: linear-gradient(180deg, var(--gripen) 0%, var(--bg) 100%);
+  border-bottom: 2px solid var(--orange);
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.logo-mark {
+  width: 36px;
+  height: 36px;
+  background: var(--orange);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.7rem;
+  color: #0c0e10;
+}
+.logo-text h1 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.logo-text p {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.badge {
+  background: var(--orange);
+  color: #0c0e10;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+.card h2 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: var(--orange);
+}
+label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-bottom: 0.35rem;
+}
+select, input[type="number"] {
+  width: 100%;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+select:focus, input:focus {
+  outline: none;
+  border-color: var(--orange);
+  box-shadow: 0 0 0 2px var(--orange-glow);
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--orange);
+  color: #0c0e10;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  width: 100%;
+}
+.btn:hover { background: var(--orange-dim); }
+.btn:active { transform: scale(0.98); }
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--border-light);
+  color: var(--text);
+}
+.btn-secondary:hover {
+  background: var(--card-hover);
+  border-color: var(--orange);
+}
+.progress-bar {
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 0.75rem 0;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--orange);
+  transition: width 0.3s ease;
+}
+.timer {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--orange);
+}
+.timer.warn { color: #fbbc04; }
+.timer.danger { color: var(--error); }
+.question-num {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-bottom: 0.5rem;
+}
+.question-text {
+  font-size: 1.05rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.55;
+}
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.option {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  text-align: left;
+}
+.option:hover { border-color: var(--border-light); background: var(--card-hover); }
+.option.selected { border-color: var(--orange); background: rgba(232, 93, 4, 0.08); }
+.option.correct { border-color: var(--success); background: rgba(52, 168, 83, 0.1); }
+.option.incorrect { border-color: var(--error); background: rgba(234, 67, 53, 0.1); }
+.option input { display: none; }
+.option-letter {
+  flex-shrink: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.option.selected .option-letter { background: var(--orange); color: #0c0e10; }
+.option.correct .option-letter { background: var(--success); color: #fff; }
+.option.incorrect .option-letter { background: var(--error); color: #fff; }
+.nav {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+.nav .btn { flex: 1; }
+.result-score {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin: 1rem 0;
+}
+.result-score.pass { color: var(--success); }
+.result-score.fail { color: var(--error); }
+.explanation {
+  background: var(--bg2);
+  border-left: 3px solid var(--orange);
+  padding: 0.75rem 1rem;
+  margin-top: 1rem;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+}
+.hidden { display: none !important; }
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+.stat {
+  background: var(--bg2);
+  border-radius: 8px;
+  padding: 0.75rem;
+  text-align: center;
+}
+.stat-value { font-size: 1.25rem; font-weight: 700; color: var(--orange); }
+.stat-label { font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; }
+footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  color: var(--text-dim);
+  font-size: 0.75rem;
+}
+@media (max-width: 480px) {
+  .header-inner { flex-wrap: wrap; }
+  .logo-text h1 { font-size: 1rem; }
+  .question-text { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-mark">11A</div>
+      <div class="logo-text">
+        <h1>Module 11A</h1>
+        <p>Aircraft Systems · EASA Part-66</p>
+      </div>
+    </div>
+    <span class="badge">ICAT Practice</span>
+  </div>
+</header>
+
+<div class="container" id="setup">
+  <div class="card">
+    <h2>Start Practice Exam</h2>
+    <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem">
+      Full question bank. Select how many you want to attempt. Timer scales with question count (75 s per question). Pass mark: 75%.
+    </p>
+    <label for="qCount">Number of questions</label>
+    <select id="qCount">
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="30">30</option>
+      <option value="40">40</option>
+      <option value="50">50</option>
+      <option value="60">60</option>
+      <option value="70">70</option>
+      <option value="80">80</option>
+      <option value="90">90</option>
+      <option value="100">100</option>
+      <option value="110">110</option>
+      <option value="120">120</option>
+      <option value="130">130</option>
+      <option value="140" selected>140</option>
+    </select>
+    <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:1rem">
+      Suggested time: <strong id="suggestedTime">175 min</strong>
+    </p>
+    <button class="btn" id="startBtn" onclick="newExam()">Start Exam</button>
+  </div>
+</div>
+
+<div class="container hidden" id="exam">
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem">
+      <span class="question-num" id="qNum">Question 1 / 140</span>
+      <span class="timer" id="timer">02:55:00</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
+    <div class="question-text" id="qText"></div>
+    <div class="options" id="options"></div>
+    <div class="nav">
+      <button class="btn btn-secondary" id="prevBtn" onclick="prevQ()">Previous</button>
+      <button class="btn" id="nextBtn" onclick="nextQ()">Next</button>
+    </div>
+  </div>
+</div>
+
+<div class="container hidden" id="result">
+  <div class="card">
+    <h2 style="text-align:center">Exam Result</h2>
+    <div class="result-score" id="scoreDisplay">0%</div>
+    <div class="stats">
+      <div class="stat"><div class="stat-value" id="correctCount">0</div><div class="stat-label">Correct</div></div>
+      <div class="stat"><div class="stat-value" id="totalCount">0</div><div class="stat-label">Total</div></div>
+    </div>
+    <p id="passMsg" style="text-align:center;margin:1rem 0;font-weight:600"></p>
+    <button class="btn" onclick="reviewAnswers()">Review Answers</button>
+    <button class="btn btn-secondary" style="margin-top:0.5rem" onclick="location.reload()">New Exam</button>
+  </div>
+  <div id="reviewList" class="hidden"></div>
+</div>
+
+<footer>
+  EASA Part-66 Module 11A · Practice questions based on ICAT distance learning material<br>
+  For educational use only · Not an official exam
+</footer>
+
+<script>
+// Minimal stub - full bank will be loaded in next update
+const BANK = [
+  {q:"What is the primary purpose of a hydraulic system in an aircraft?", a:["To provide electrical power","To transmit force using fluid pressure","To cool the engines","To pressurize the cabin"], c:1, e:"Hydraulic systems use incompressible fluid to transmit force for actuating landing gear, flight controls, brakes, etc."},
+  {q:"Which component stores hydraulic fluid under pressure?", a:["Pump","Reservoir","Accumulator","Actuator"], c:2, e:"The accumulator stores fluid under pressure using a gas charge (usually nitrogen) to absorb shocks and provide emergency power."},
+  {q:"What colour is normally used for hydraulic fluid identification lines?", a:["Red","Blue","Yellow","Green"], c:1, e:"Blue is the standard colour code for hydraulic systems in many aircraft."}
+];
+let exam = [], answers = {}, current = 0, timerInterval = null, timeLeft = 0;
+
+function updateSuggestedTime(){
+  const n = +document.getElementById('qCount').value;
+  const mins = Math.ceil(n * 75 / 60);
+  document.getElementById('suggestedTime').textContent = mins + ' min';
+}
+document.getElementById('qCount').addEventListener('change', updateSuggestedTime);
+updateSuggestedTime();
+
+function shuffle(arr){
+  for(let i=arr.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]] = [arr[j],arr[i]];
+  }
+  return arr;
+}
+
+function newExam(){
+  const n = +document.getElementById('qCount').value;
+  exam = shuffle([...BANK]).slice(0, Math.min(n, BANK.length));
+  answers = {};
+  current = 0;
+  timeLeft = exam.length * 75;
+  document.getElementById('setup').classList.add('hidden');
+  document.getElementById('result').classList.add('hidden');
+  document.getElementById('exam').classList.remove('hidden');
+  renderQ();
+  startTimer();
+}
+
+function startTimer(){
+  clearInterval(timerInterval);
+  updateTimerDisplay();
+  timerInterval = setInterval(()=>{
+    timeLeft--;
+    updateTimerDisplay();
+    if(timeLeft <= 0){ clearInterval(timerInterval); finishExam(); }
+  }, 1000);
+}
+
+function updateTimerDisplay(){
+  const h = Math.floor(timeLeft/3600);
+  const m = Math.floor((timeLeft%3600)/60);
+  const s = timeLeft%60;
+  const el = document.getElementById('timer');
+  el.textContent = [h,m,s].map(v=>String(v).padStart(2,'0')).join(':');
+  el.className = 'timer' + (timeLeft < 300 ? ' danger' : timeLeft < 600 ? ' warn' : '');
+}
+
+function renderQ(){
+  const q = exam[current];
+  document.getElementById('qNum').textContent = `Question ${current+1} / ${exam.length}`;
+  document.getElementById('qText').textContent = q.q;
+  document.getElementById('progress').style.width = ((current)/exam.length*100)+'%';
+  const opts = document.getElementById('options');
+  opts.innerHTML = '';
+  q.a.forEach((opt,i)=>{
+    const div = document.createElement('div');
+    div.className = 'option' + (answers[current]===i ? ' selected' : '');
+    div.onclick = ()=>{ answers[current]=i; renderQ(); };
+    div.innerHTML = `<span class="option-letter">${String.fromCharCode(65+i)}</span><span>${opt}</span>`;
+    opts.appendChild(div);
+  });
+  document.getElementById('prevBtn').disabled = current===0;
+  document.getElementById('nextBtn').textContent = current===exam.length-1 ? 'Finish' : 'Next';
+}
+
+function prevQ(){ if(current>0){ current--; renderQ(); } }
+function nextQ(){
+  if(current < exam.length-1){ current++; renderQ(); }
+  else finishExam();
+}
+
+function finishExam(){
+  clearInterval(timerInterval);
+  let correct = 0;
+  exam.forEach((q,i)=>{ if(answers[i]===q.c) correct++; });
+  const pct = Math.round(correct / exam.length * 100);
+  document.getElementById('exam').classList.add('hidden');
+  document.getElementById('result').classList.remove('hidden');
+  const scoreEl = document.getElementById('scoreDisplay');
+  scoreEl.textContent = pct + '%';
+  scoreEl.className = 'result-score ' + (pct >= 75 ? 'pass' : 'fail');
+  document.getElementById('correctCount').textContent = correct;
+  document.getElementById('totalCount').textContent = exam.length;
+  document.getElementById('passMsg').textContent = pct >= 75 ? 'PASSED (75% required)' : 'FAILED – need 75%';
+  document.getElementById('passMsg').style.color = pct >= 75 ? 'var(--success)' : 'var(--error)';
+}
+
+function reviewAnswers(){
+  const list = document.getElementById('reviewList');
+  list.classList.remove('hidden');
+  list.innerHTML = '';
+  exam.forEach((q,i)=>{
+    const card = document.createElement('div');
+    card.className = 'card';
+    const ok = answers[i] === q.c;
+    card.innerHTML = `<div class="question-num">Q${i+1} · ${ok?'✓ Correct':'✗ Incorrect'}</div>
+      <div class="question-text">${q.q}</div>
+      <div style="margin:0.5rem 0">Your answer: <strong>${answers[i]!==undefined ? q.a[answers[i]] : '(none)'}</strong></div>
+      <div>Correct: <strong>${q.a[q.c]}</strong></div>
+      <div class="explanation">${q.e||''}</div>`;
+    list.appendChild(card);
+  });
+}
+</script>
+</body>
+</html>
