@@ -1,1 +1,1 @@
-PLACEHOLDER
+window.BANK0 = [{"s": "11.1 Theory of Flight", "q": "What is Critical Mach Number (Mcrit)?", "o": ["The free-stream speed at which the entire aircraft reaches Mach 1.0", "The free-stream Mach number at which local flow first reaches Mach 1.0 on the aircraft", "The maximum operating speed published in the AFM"], "a": 1, "e": "Mcrit is the free-stream Mach number at which sonic flow first appears locally (usually on the upper wing surface)."}];
