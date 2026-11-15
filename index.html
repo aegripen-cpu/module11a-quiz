@@ -1,1 +1,74 @@
-PLACEHOLDER_WILL_FAIL
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0c0e10"><title>Module 11A Quiz</title>
+<style>
+:root{--bg:#0c0e10;--card:#161a20;--bd:#2a3038;--or:#e85d04;--tx:#e8eaed;--dim:#9aa0a6;--ok:#34a853;--err:#ea4335}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:system-ui;background:var(--bg);color:var(--tx);min-height:100vh;line-height:1.45}
+.w{max-width:720px;margin:0 auto;padding:1rem}header{border-bottom:2px solid var(--or);padding:.75rem 1rem;margin-bottom:1rem}
+h1{font-size:1.1rem}.sub{font-size:.7rem;color:var(--dim);text-transform:uppercase}
+.c{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:1.1rem;margin-bottom:1rem}
+.btn{display:block;width:100%;background:var(--or);color:#0c0e10;border:none;padding:.75rem;border-radius:8px;font-weight:700;cursor:pointer;margin-top:.5rem}
+.btn2{background:transparent;border:1px solid var(--bd);color:var(--tx)}
+select{width:100%;background:#12151a;border:1px solid var(--bd);color:var(--tx);padding:.6rem;border-radius:8px;margin:.4rem 0 1rem;font-size:1rem}
+.o{background:#12151a;border:1px solid var(--bd);border-radius:8px;padding:.75rem;margin:.4rem 0;cursor:pointer;display:flex;gap:.6rem;text-align:left}
+.o.s{border-color:var(--or)}.o.ok{border-color:var(--ok);background:rgba(52,168,83,.12)}.o.bd{border-color:var(--err);background:rgba(234,67,53,.1)}
+.l{width:1.5rem;height:1.5rem;border-radius:50%;background:var(--bd);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0}
+.o.s .l{background:var(--or);color:#0c0e10}.o.ok .l{background:var(--ok);color:#fff}.o.bd .l{background:var(--err);color:#fff}
+.e{display:none;border-left:3px solid var(--or);padding:.6rem .8rem;margin-top:.8rem;font-size:.88rem;color:var(--dim);background:#12151a;border-radius:0 8px 8px 0}
+.e.on{display:block}.sb{display:none;background:#12151a;border-bottom:1px solid var(--bd);padding:.5rem 1rem;font-size:.8rem;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.sb.on{display:flex}.sb b{color:var(--or)}.hid{display:none!important}
+.p{height:5px;background:var(--bd);border-radius:3px;margin:.5rem 0 1rem;overflow:hidden}.p>div{height:100%;background:var(--or);width:0}
+.t{font-weight:700;color:var(--or)}.nav{display:flex;gap:.5rem;margin-top:1rem}.nav .btn{flex:1}
+.sc{font-size:2.4rem;font-weight:800;text-align:center;margin:.5rem 0}.tag{font-size:.7rem;color:var(--or);margin-bottom:.4rem}
+</style></head><body>
+<header><div class="w"><h1>Module 11A</h1><div class="sub">EASA Part-66 · Higher difficulty</div></div></header>
+<div class="sb" id="sb"><span>Score <b id="sS">0%</b></span><span>Correct <b id="sC">0</b></span><span>Answered <b id="sA">0</b></span><span>Left <b id="sL">0</b></span></div>
+<div class="w" id="su"><div class="c"><h2 style="color:var(--or);font-size:1rem;margin-bottom:.6rem">Start Practice</h2>
+<p style="color:var(--dim);font-size:.9rem;margin-bottom:.8rem">10 harder questions · balanced A/B/C · Pass 75%</p>
+<label style="font-size:.85rem;color:var(--dim)">Questions</label>
+<select id="n"><option value="5">5</option><option value="10" selected>All (10)</option></select>
+<button class="btn" onclick="go()">Start Exam</button></div></div>
+<div class="w hid" id="ex"><div class="c">
+<div style="display:flex;justify-content:space-between"><span id="qn" style="color:var(--dim);font-size:.8rem"></span><span class="t" id="tm"></span></div>
+<div class="p"><div id="pf"></div></div><div class="tag" id="tg"></div><div id="qt" style="margin-bottom:1rem;font-size:1.05rem"></div>
+<div id="op"></div><div class="e" id="ep"></div>
+<div class="nav"><button class="btn btn2" onclick="pv()">Previous</button><button class="btn" id="nx" onclick="nx()">Next</button></div>
+</div></div>
+<div class="w hid" id="rs"><div class="c"><h2 style="text-align:center;color:var(--or)">Result</h2>
+<div class="sc" id="sc"></div><p id="ms" style="text-align:center;font-weight:600;margin:1rem 0"></p>
+<button class="btn" onclick="location.reload()">New Exam</button></div></div>
+<script>
+const B=[{"s":"11.1 Theory of Flight","q":"An aircraft is flying just below Mcrit. What is the most likely first aerodynamic consequence if speed increases slightly further?","o":["Sudden complete flow separation over the entire wing and immediate loss of all lift","Local sonic flow and the onset of a shock wave, typically on the upper surface first","Immediate compressibility buzz of the whole airframe with structural limit exceedance"],"a":1,"e":"Mcrit is defined by the first appearance of local sonic flow; a weak shock then forms."},{"s":"11.1 Theory of Flight","q":"Why does wing sweep increase Critical Mach Number for a given thickness-to-chord ratio?","o":["Sweep only reduces induced drag in cruise and has no meaningful effect on Mcrit","Sweep increases the velocity component normal to the leading edge and lowers Mcrit","Sweep reduces the velocity component normal to the leading edge, delaying local sonic flow"],"a":2,"e":"Only the normal component drives local acceleration; reducing it raises Mcrit."},{"s":"11.1 Theory of Flight","q":"What is the relationship between stall speed in a 60 bank level turn and the 1g stall speed?","o":["It is approximately 1.41 times the 1g stall speed for the same configuration and weight","It remains exactly the same as the 1g stall speed for the same configuration","It is half the 1g stall speed because load factor reduces effective weight"],"a":0,"e":"Load factor n=2 at 60 bank; stall speed scales with sqrt(n) approx 1.41."},{"s":"11.2 Structures","q":"Fail-safe structural design philosophy means that:","o":["Only safe-life components may be used and no redundant load paths are permitted","The structure can never fail under any load within the design envelope","After failure of a single principal element, remaining structure can still carry limit loads until damage is found and repaired"],"a":2,"e":"Fail-safe relies on redundancy so residual strength remains adequate after discrete damage."},{"s":"11.4 Pressurisation","q":"Cabin altitude is climbing through 10 000 ft while the aircraft is level at FL350. The most likely primary cause is:","o":["Insufficient inflow or excessive outflow relative to the selected cabin altitude schedule","Pack over-temperature only with no effect on mass flow balance","Failure of the recirculation fans alone without any outflow valve movement"],"a":0,"e":"Cabin altitude is controlled by the balance of mass flow in versus out."},{"s":"11.6 Electrical","q":"What is the purpose of a Generator Control Unit (GCU) in a modern AC generation system?","o":["Only to convert AC to DC for the essential and main DC buses","To regulate voltage, control excitation, provide protection and manage paralleling where applicable","Only to drive the generator mechanically through a constant-speed drive unit"],"a":1,"e":"The GCU is the electronic brain of each channel: regulation, protection and logic."},{"s":"11.9 Flight Controls","q":"In a fully powered irreversible flight-control system, artificial feel is provided because:","o":["The pilot is otherwise disconnected from surface loads and would have no cue of airspeed without synthetic feel","The aerodynamic hinge moments are still transmitted directly to the pilot through cables","Regulations forbid any feel system on transport category aircraft"],"a":0,"e":"Irreversible actuators prevent surface forces from feeding back; Q-feel restores cues."},{"s":"11.11 Hydraulics","q":"Why is phosphate-ester hydraulic fluid (e.g. Skydrol) used on many large transport aircraft?","o":["It is fully compatible with all seal materials without any material restrictions","It is cheaper and less dense than mineral oil for the same system pressure","It has much higher fire resistance, which is critical in engine and landing-gear areas"],"a":2,"e":"Fire resistance is the dominant reason for phosphate-ester fluids."},{"s":"11.13 Landing Gear","q":"Anti-skid systems prevent wheel lock-up by:","o":["Only releasing the brakes completely at the moment of touchdown","Always applying maximum brake pressure regardless of runway condition","Modulating brake pressure in response to wheel-speed sensors so the wheel rotates near optimal slip"],"a":2,"e":"Controlled slip maximises friction without locking and skidding."},{"s":"11.18 Maintenance","q":"A Minimum Equipment List (MEL) allows dispatch with certain items inoperative provided that:","o":["The pilot-in-command decides without reference to any approved document","The specific conditions, procedures and repair intervals in the approved MEL are complied with","Any item may be deferred indefinitely without operational restrictions"],"a":1,"e":"The MEL is a controlled alleviation within the certified type design."}];
+let E=[],A={},c=0,T=0,I=null;
+function sh(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function go(){const n=+document.getElementById('n').value;E=sh(B).slice(0,n);A={};c=0;T=E.length*75;
+document.getElementById('su').classList.add('hid');document.getElementById('rs').classList.add('hid');
+document.getElementById('ex').classList.remove('hid');document.getElementById('sb').classList.add('on');
+shw();tk();clearInterval(I);I=setInterval(()=>{T--;tk();if(T<=0){clearInterval(I);fin();}},1000);}
+function tk(){const h=Math.floor(T/3600),m=Math.floor((T%3600)/60),s=T%60;
+document.getElementById('tm').textContent=[h,m,s].map(v=>String(v).padStart(2,'0')).join(':');}
+function sb(){const a=Object.keys(A).length;let k=0;for(const i in A)if(A[i]===E[+i].a)k++;
+document.getElementById('sS').textContent=(a?Math.round(k/a*100):0)+'%';
+document.getElementById('sC').textContent=k;document.getElementById('sA').textContent=a;
+document.getElementById('sL').textContent=E.length-a;}
+function shw(){const q=E[c];document.getElementById('qn').textContent='Question '+(c+1)+' / '+E.length;
+document.getElementById('qt').textContent=q.q;document.getElementById('tg').textContent=q.s||'';
+document.getElementById('pf').style.width=(c/E.length*100)+'%';const L=A[c]!==undefined;const box=document.getElementById('op');box.innerHTML='';
+q.o.forEach((o,i)=>{const d=document.createElement('div');let cls='o';
+if(L)cls+=' '+(i===q.a?'ok':(i===A[c]?'bd':''));else if(A[c]===i)cls+=' s';
+d.className=cls;if(!L)d.onclick=()=>{A[c]=i;shw();};
+d.innerHTML='<span class="l">'+'ABC'[i]+'</span><span>'+o+'</span>';box.appendChild(d);});
+const e=document.getElementById('ep');
+if(L){e.innerHTML='<strong style="color:var(--tx)">Explanation:</strong> '+(q.e||'');e.classList.add('on');}
+else{e.classList.remove('on');e.innerHTML='';}
+document.getElementById('nx').textContent=c===E.length-1?'Finish':'Next';sb();}
+function pv(){if(c>0){c--;shw();}}
+function nx(){if(c<E.length-1){c++;shw();}else fin();}
+function fin(){clearInterval(I);let k=0;E.forEach((q,i)=>{if(A[i]===q.a)k++;});const p=Math.round(k/E.length*100);
+document.getElementById('ex').classList.add('hid');document.getElementById('sb').classList.remove('on');
+document.getElementById('rs').classList.remove('hid');document.getElementById('sc').textContent=p+'%';
+document.getElementById('sc').style.color=p>=75?'var(--ok)':'var(--err)';
+document.getElementById('ms').textContent=p>=75?'PASSED (75% required)':'FAILED – need 75%';
+document.getElementById('ms').style.color=p>=75?'var(--ok)':'var(--err)';}
+</script></body></html>
